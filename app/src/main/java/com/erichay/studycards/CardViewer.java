@@ -60,6 +60,7 @@ public class CardViewer extends Activity
             return;
         }
 
+
         //Some variables we'll need
         String line; //This will hold an entire line - an entire card
         String definition; //This will hold the definition part of the card
