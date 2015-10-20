@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.erichay.studycards" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -11,18 +10,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".CardViewer"
             android:label="@string/title_activity_card_viewer" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
+        <activity
+            android:name=".CardPlayer"
+            android:label="@string/title_activity_card_player"
+            android:parentActivityName=".CardViewer" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.erichay.studycards.CardViewer" />
+        </activity>
     </application>
 
 </manifest>

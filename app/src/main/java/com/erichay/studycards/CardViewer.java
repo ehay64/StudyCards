@@ -1,5 +1,6 @@
 package com.erichay.studycards;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Environment;
@@ -24,6 +25,7 @@ public class CardViewer extends Activity
         setContentView(R.layout.card_viewer_layout);
 
         //Get the toolbar and set it's title to white
+        //also set it's menu
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorAccent));
         toolbar.inflateMenu(R.menu.toolbar_menu);
@@ -35,7 +37,7 @@ public class CardViewer extends Activity
 
         //Make a new adapter for the cards
         CardAdapter adapter = new CardAdapter(this, R.layout.card_list_layout, cards);
-
+        //Get the ListView and set the adapter
         ListView listView = (ListView)findViewById(R.id.card_list_view);
         listView.setAdapter(adapter);
 
@@ -43,7 +45,15 @@ public class CardViewer extends Activity
 
     public void startCards(MenuItem i)
     {
-        Toast.makeText(this, "Not Implemented Yet", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Almost Implemented", Toast.LENGTH_LONG).show();
+
+        //Create a new intent for the CardPlayer
+        Intent intent = new Intent(this, CardPlayer.class);
+        //Put the cards in the intent
+        intent.putExtra("cards", cards);
+
+        //Start the activity
+        startActivity(intent);
     }
 
     private void loadCards()
@@ -91,4 +101,5 @@ public class CardViewer extends Activity
 
         }
     }
+
 }

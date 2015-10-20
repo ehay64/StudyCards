@@ -3,5 +3,9 @@
     <string name="app_name">Study Cards</string>
     <string name="title_activity_card_viewer">Study Cards</string>
     <string name="start_cards">Start</string>
+    <string name="title_activity_card_player">CardPlayer</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
