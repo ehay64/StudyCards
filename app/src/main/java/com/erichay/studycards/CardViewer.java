@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 public class CardViewer extends Activity
 {
-    private ArrayList<Card> cards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,12 +30,12 @@ public class CardViewer extends Activity
         toolbar.inflateMenu(R.menu.toolbar_menu);
 
         //Make a new array of cards
-        cards = new ArrayList<Card>();
+        CardHolder.cards = new ArrayList<Card>();
         //Load cards from the external file to the array
         loadCards();
 
         //Make a new adapter for the cards
-        CardAdapter adapter = new CardAdapter(this, R.layout.card_list_layout, cards);
+        CardAdapter adapter = new CardAdapter(this, R.layout.card_list_layout, CardHolder.cards);
         //Get the ListView and set the adapter
         ListView listView = (ListView)findViewById(R.id.card_list_view);
         listView.setAdapter(adapter);
@@ -45,13 +44,10 @@ public class CardViewer extends Activity
 
     public void startCards(MenuItem i)
     {
-        Toast.makeText(this, "Almost Implemented", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Almost Implemented", Toast.LENGTH_LONG).show();
 
         //Create a new intent for the CardPlayer
         Intent intent = new Intent(this, CardPlayer.class);
-        //Put the cards in the intent
-        intent.putExtra("cards", cards);
-
         //Start the activity
         startActivity(intent);
     }
@@ -92,7 +88,7 @@ public class CardViewer extends Activity
                 answer = line.substring(line.indexOf(";") + 1, line.length()).trim();
 
                 //Add the card to the array
-                cards.add(new Card(definition, answer));
+                CardHolder.cards.add(new Card(definition, answer));
             } while (true);
 
         }
