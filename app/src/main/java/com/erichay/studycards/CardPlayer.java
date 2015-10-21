@@ -1,7 +1,6 @@
 package com.erichay.studycards;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -34,18 +33,20 @@ public class CardPlayer extends Activity
         position = 0;
         side = true;
 
-        playCards(null);
+        //Call viewCard to show the definition of the first card
+        viewNextCard(null);
     }
 
     private void randomizeCards()
     {
+        //Get a seed for our random object
         long seed = System.nanoTime();
+        //Shuffle the cards in the card array with the seed
         Collections.shuffle(cards, new Random(seed));
     }
 
-    public void playCards(View v)
+    public void viewNextCard(View v)
     {
-
         //Check to see if we're done
         if (position == cards.size())
         {
@@ -64,7 +65,6 @@ public class CardPlayer extends Activity
             side = !side;
             position++;
         }
-
     }
 
 }

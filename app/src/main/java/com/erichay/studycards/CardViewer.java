@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class CardViewer extends Activity
 {
 
-    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -39,13 +38,10 @@ public class CardViewer extends Activity
         //Get the ListView and set the adapter
         ListView listView = (ListView)findViewById(R.id.card_list_view);
         listView.setAdapter(adapter);
-
     }
 
-    public void startCards(MenuItem i)
+    public void startCardPlayer(MenuItem i)
     {
-        //Toast.makeText(this, "Almost Implemented", Toast.LENGTH_LONG).show();
-
         //Create a new intent for the CardPlayer
         Intent intent = new Intent(this, CardPlayer.class);
         //Start the activity
@@ -86,9 +82,9 @@ public class CardViewer extends Activity
                 definition = line.substring(0, line.indexOf(";")).trim();
                 //Get the answer
                 answer = line.substring(line.indexOf(";") + 1, line.length()).trim();
-
                 //Add the card to the array
                 CardHolder.cards.add(new Card(definition, answer));
+
             } while (true);
 
         }

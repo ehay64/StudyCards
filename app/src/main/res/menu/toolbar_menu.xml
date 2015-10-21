@@ -10,6 +10,6 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:title="@string/start_cards"
-        android:onClick="startCards"/>
+        android:onClick="startCardPlayer"/>
 
 </menu>
